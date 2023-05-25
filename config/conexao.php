@@ -1,12 +1,12 @@
 <?php
 
     $host = "localhost";
-    $db   = "db_agenda";
+    $db   = "bd_agenda";
     $user = "root";
     $pass = "";
 
     try {
-        $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+        $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
 
         //Ativando modo de erros
 

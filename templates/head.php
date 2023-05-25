@@ -1,6 +1,13 @@
 <?php
 
     include_once "config/url.php";
+    include_once "config/processa.php";
+
+    //limpa a msg
+    if(isset($_SESSION['msg'])) {
+        $printMsg = $_SESSION['msg'];
+        $_SESSION['msg'] = '';
+    }
 
 ?>
 <!DOCTYPE html>
@@ -9,6 +16,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="img/logo.svg" type="image/x-icon">
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" integrity="sha512-oc9+XSs1H243/FRN9Rw62Fn8EtxjEYWHXRvjS43YtueEewbS6ObfXcJNyohjHqVKFPoXXUxwc+q1K7Dee6vv9g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- FONT-AWESOME -->
