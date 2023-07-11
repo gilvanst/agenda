@@ -20,7 +20,7 @@
 
             <div class="form-group">
                 <label for="observacoes">Observações:</label>
-                <textarea  rows="3"type="observacoes" name="observacoes" id="observacoes" class="form-control" placeholder="Insira a descrição aqui..." required></textarea>
+                <textarea  rows="3"type="text" name="observacao" id="observacoes" class="form-control" placeholder="Insira a descrição aqui..." required></textarea>
             </div>
 
             <input type="submit" class="btn btn-primary" value="Enviar" >

@@ -35,6 +35,66 @@
                 $error = $e->getMessage();
                 echo "Erro: $error";
             }
+
+        } else if($data["type"] === "edit") {
+
+            $name       = $data["name"];
+            $telefone   = $data["telefone"];
+            $observacao = $data["observacao"];
+            $id         = $data["id"];
+
+            $query = "UPDATE contato    
+            SET name = :name, telefone = :telefone, observacao = :observacao 
+            WHERE id = :id";
+
+            $stmt = $conn->prepare($query);
+
+            $stmt->bindParam(":name", $name);
+            $stmt->bindParam(":telefone", $telefone);
+            $stmt->bindParam(":observacao", $observacao);
+            $stmt->bindParam(":id ", $id );
+
+            
+            try {
+
+
+                $stmt->execute();
+                
+                $_SESSION["msg"] = "Contato atualizado com sucesso";
+
+            } catch (PDOException $e) {
+
+                $error = $e->getMessage();
+                echo "Erro: $error";
+            }
+            
+           
+        }else if ($data["type"] === "delete") {
+
+            $id = $data["id"];
+
+            $query = "DELETE * FROM contato WHERE id = :id";
+
+            $stmt = $conn->prepare($query);
+
+            $stmt->bindParam(":id", $id);
+
+            
+
+            try {
+
+
+                $stmt->execute();
+                
+                $_SESSION["msg"] = "Contato deletado com sucesso";
+
+            } catch (PDOException $e) {
+
+                $error = $e->getMessage();
+                echo "Erro: $error";
+            }
+            
+
         }
 
         header("Location:" . $BASE_URL . "../index.php");
@@ -75,7 +135,8 @@
         $contato = $stmt->fetchAll();
 
     }
+    
 
-    }
+ }
 
     $conn = null;
